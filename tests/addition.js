@@ -1,6 +1,6 @@
-const test = require('blue-tape')
+import test from 'blue-tape'
 
-const {add} = require('../vector/math')
+import {add} from '../vector/simple-arithmetic'
 
 test('addition: 2d vectors', t => {
   let v1 = {x: 0, y: 1}
@@ -21,6 +21,7 @@ test('addition: 3d vectors', t => {
   let v2 = {x: 2, y: 1, z: 0}
   let expected = {x: 2, y: 2, z: 2}
   t.same(add(v1, v2), expected)
+
   t.end()
 })
 

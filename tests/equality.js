@@ -1,8 +1,8 @@
-const test = require('blue-tape')
+import test from 'blue-tape'
 
-const {add, subtract, multiply, divide, equal} = require('../vector/math')
+import {equal} from '../vector/simple-arithmetic'
 
-test('equality', t => {
+test('equality: simple equality', t => {
   const testVectors = [
     [{x: 1}, {x: 1}],
     [{x: 2}, {x: 2}],
@@ -12,10 +12,11 @@ test('equality', t => {
   for (const [v1, v2] of testVectors) {
     t.assert(equal(v1, v2))
   }
+
   t.end()
 })
 
-test('inequality', t => {
+test('equality: simple inequality', t => {
   const testVectors = [
     [{x: 1}, {x: 2}],
     [{x: 2}, {y: 2}],
@@ -25,5 +26,19 @@ test('inequality', t => {
   for (const [v1, v2] of testVectors) {
     t.assert(!equal(v1, v2))
   }
+
+  t.end()
+})
+
+test('equality: differing component count', t => {
+  const testVectors = [
+    [{x: 1}, {y: 1}],
+    [{x: 1, y: 1}, {x: 1}],
+    [{x: 1, y: 2, z: 3}, {y: 2, z: 3}]
+  ]
+  for (const [v1, v2] of testVectors) {
+    t.assert(!equal(v1, v2))
+  }
+
   t.end()
 })

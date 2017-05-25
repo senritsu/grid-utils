@@ -4,11 +4,13 @@
   "description": "A utility library for grids, including discrete vector math and topology",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/blue-tape.cmd tests/**/*.js | faucet"
+    "test": "babel-node node_modules/blue-tape/bin/blue-tape.js tests/**/*.js | faucet"
   },
   "author": "senritsu",
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2015": "^6.24.1",
     "blue-tape": "^1.0.0"
   }
 }

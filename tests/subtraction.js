@@ -1,6 +1,6 @@
-const test = require('blue-tape')
+import test from 'blue-tape'
 
-const {subtract} = require('../vector/math')
+import {subtract} from '../vector/simple-arithmetic'
 
 test('subtraction: 2d vectors', t => {
   let v1 = {x: 0, y: 1}
@@ -21,6 +21,7 @@ test('subtraction: 3d vectors', t => {
   let v2 = {x: 2, y: 1, z: 0}
   let expected = {x: -2, y: 0, z: 2}
   t.same(subtract(v1, v2), expected)
+
   t.end()
 })
 

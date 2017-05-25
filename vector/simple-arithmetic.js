@@ -31,16 +31,18 @@ const componentWise = f => (v1, v2) => {
 
 const curryWrapComponentWise = f => curryWrap(componentWise(f))
 
-module.exports.add = curryWrapComponentWise((a, b) => a + b)
+export const add = curryWrapComponentWise((a, b) => a + b)
 
-module.exports.subtract = curryWrapComponentWise((a, b) => a - b)
+export const subtract = curryWrapComponentWise((a, b) => a - b)
 
-module.exports.multiply = curryWrapComponentWise((a, b) => a * b)
+// hadamard product
+export const multiply = curryWrapComponentWise((a, b) => a * b)
 
-module.exports.divide = curryWrapComponentWise((a, b) => Math.round(a / b))
+// hadamard division
+export const divide = curryWrapComponentWise((a, b) => Math.round(a / b))
 
 const bothUndefinedOrEqual = (a, b) => a === undefined && b === undefined ? true : a === b
-module.exports.equal = curryWrap((v1, v2) => {
+export const equal = curryWrap((v1, v2) => {
   return bothUndefinedOrEqual(v1.x, v2.x) &&
     bothUndefinedOrEqual(v1.y, v2.y) &&
     bothUndefinedOrEqual(v1.z, v2.z)
