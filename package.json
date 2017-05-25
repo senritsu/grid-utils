@@ -1,0 +1,14 @@
+{
+  "name": "grid-utils",
+  "version": "1.0.0",
+  "description": "A utility library for grids, including discrete vector math and topology",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/blue-tape.cmd tests/**/*.js | faucet"
+  },
+  "author": "senritsu",
+  "license": "MIT",
+  "devDependencies": {
+    "blue-tape": "^1.0.0"
+  }
+}
