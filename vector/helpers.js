@@ -1,16 +1,21 @@
 import Vector from './prototype'
 
-export const curryWrap = f => {
-  const curried = v2 => v1 => f(v1, v2)
-  return (v1, v2) => {
-    if (v2 === undefined) {
-      return curried(v1)
+export const wrapBinaryOperator = f => {
+  const curried = right => left => f(left, right)
+
+  return (left, right) => {
+    if (right === undefined) {
+      // check for function to allow usage by the pipeline function
+      if (Array.isArray(left) && left.length === 2 && !left[0] instanceof Function) {
+        return f(left[0], left[1])
+      }
+      return curried(left)
     }
-    return f(v1, v2)
+    return f(left, right)
   }
 }
 
-export const pipeline = curryWrap((value, functions) => functions.reduce((current, f) => f(current), value))
+export const pipeline = wrapBinaryOperator((value, functions) => functions.reduce((current, f) => f(current), value))
 
 export const allComponents = ['x', 'y', 'z']
 
@@ -53,4 +58,4 @@ export const skipUndefinedArguments = (f, defaultValue) => (a, b) => a !== undef
   ? f(a, b)
   : defaultValue
 
-export const curriedComponentWise = pipeline([skipUndefinedArguments, componentWise, curryWrap])
+export const curriedComponentWise = pipeline([skipUndefinedArguments, componentWise, wrapBinaryOperator])

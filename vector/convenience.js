@@ -1,3 +1,3 @@
-import {curryWrap, componentWise} from './helpers'
+import {wrapBinaryOperator, componentWise} from './helpers'
 
-export const set = curryWrap(componentWise((a, b) => b === undefined ? a : b))
+export const set = wrapBinaryOperator(componentWise((a, b) => b === undefined ? a : b))

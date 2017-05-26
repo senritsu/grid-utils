@@ -1,9 +1,9 @@
-import {curryWrap, pipeline} from './helpers'
+import {wrapBinaryOperator, pipeline} from './helpers'
 import {divide, componentSum, subtract, square} from './component-arithmetic'
 
-export const dot = curryWrap((v1, v2) => { throw new Error('not implemented') })
+export const dot = wrapBinaryOperator((v1, v2) => { throw new Error('not implemented') })
 
-export const cross = curryWrap((v1, v2) => { throw new Error('not implemented') })
+export const cross = wrapBinaryOperator((v1, v2) => { throw new Error('not implemented') })
 
 export const magnitude = v => pipeline(v, [square, componentSum, Math.sqrt])
 
