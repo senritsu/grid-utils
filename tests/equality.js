@@ -1,6 +1,6 @@
 import test from 'blue-tape'
 
-import {equal} from '../vector/simple-arithmetic'
+import {equal} from '../vector/component-arithmetic'
 
 test('equality: simple equality', t => {
   const testVectors = [

@@ -1,6 +1,6 @@
 import test from 'blue-tape'
 
-import {add} from '../vector/simple-arithmetic'
+import {add} from '../vector/component-arithmetic'
 
 test('addition: 2d vectors', t => {
   let v1 = {x: 0, y: 1}
@@ -21,6 +21,20 @@ test('addition: 3d vectors', t => {
   let v2 = {x: 2, y: 1, z: 0}
   let expected = {x: 2, y: 2, z: 2}
   t.same(add(v1, v2), expected)
+
+  t.end()
+})
+
+test('addition: scalars', t => {
+  let v1 = {x: 0, y: 1}
+  let s = 2
+  let expected = {x: 2, y: 3}
+  t.same(add(v1, s), expected)
+
+  v1 = {x: 1, z: 1}
+  s = -1
+  expected = {x: 0, z: 0}
+  t.same(add(v1, s), expected)
 
   t.end()
 })

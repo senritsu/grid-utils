@@ -1,6 +1,6 @@
 import test from 'blue-tape'
 
-import {divide} from '../vector/simple-arithmetic'
+import {divide} from '../vector/component-arithmetic'
 
 test('division: 2d vectors', t => {
   let v1 = {x: 4, y: 2}

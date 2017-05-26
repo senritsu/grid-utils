@@ -1,6 +1,6 @@
 import test from 'blue-tape'
 
-import {multiply} from '../vector/simple-arithmetic'
+import {multiply} from '../vector/component-arithmetic'
 
 test('multiplication: 2d vectors', t => {
   let v1 = {x: 2, y: 1}
