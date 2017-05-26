@@ -1,9 +1,13 @@
-import {componentSum, curryWrap, componentWise} from './helpers'
+import {componentSum, curryWrap, componentWise, curriedComponentWise, pipeline} from './helpers'
+import {subtract, square} from './component-arithmetic'
 
-const abs = componentWise((a, b) => Math.abs(a - b))
-export const manhattan = curryWrap((v1, v2) => componentSum(abs(v1, v2)))
+const absoluteDifference = curriedComponentWise((a, b) => Math.abs(a - b))
+export const manhattan = curryWrap(
+  (v1, v2) => pipeline(v1, [absoluteDifference(v2), componentSum])
+)
 
-const squareDifference = componentWise((a, b) => Math.pow(a - b, 2))
+export const euclidean = curryWrap(
+  (v1, v2) => pipeline(v1, [subtract(v2), square, componentSum, Math.sqrt])
+)
 
-export const euclidean = curryWrap((v1, v2) => Math.sqrt(componentSum(squareDifference(v1, v2))))
 export const distance = euclidean

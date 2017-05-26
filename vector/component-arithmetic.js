@@ -1,4 +1,4 @@
-import {curryWrap, curriedComponentWise} from './helpers'
+import {curryWrap, componentWise, curriedComponentWise} from './helpers'
 
 export const add = curriedComponentWise((a, b) => a + b)
 
@@ -15,3 +15,7 @@ export const equal = curryWrap((v, operand) => {
     ? v.x === operand && v.y === operand && v.z === operand
     : v.x === operand.x && v.y === operand.y && v.z === operand.z
 })
+
+export const square = componentWise(a => Math.pow(a, 2))
+
+export const power = curriedComponentWise((a, b) => Math.pow(a, b))
