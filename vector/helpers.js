@@ -6,7 +6,7 @@ export const wrapBinaryOperator = f => {
   return (left, right) => {
     if (right === undefined) {
       // check for function to allow usage by the pipeline function
-      if (Array.isArray(left) && left.length === 2 && !left[0] instanceof Function) {
+      if (Array.isArray(left) && left.length === 2 && !(left[0] instanceof Function)) {
         return f(left[0], left[1])
       }
       return curried(left)
