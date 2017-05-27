@@ -4,7 +4,8 @@
   "description": "A utility library for grids, including discrete vector math and topology",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node node_modules/blue-tape/bin/blue-tape.js tests/**/*.js | faucet"
+    "test": "babel-node node_modules/blue-tape/bin/blue-tape.js tests/**/*.js | faucet",
+    "testtermux": "node_modules/.bin/babel-node node_modules/.bin/blue-tape tests/**/*.js | node_modules/.bin/faucet"
   },
   "author": "senritsu",
   "repository": "senritsu/grid-utils",
