@@ -1,5 +1,5 @@
-import {wrapBinaryOperator, pipeline} from './helpers'
-import {divide, componentSum, subtract, square} from './component-arithmetic'
+import {wrapBinaryOperator, pipeline, componentSum} from './helpers'
+import {divide, subtract, square} from './component-arithmetic'
 
 export const dot = wrapBinaryOperator((v1, v2) => { throw new Error('not implemented') })
 
