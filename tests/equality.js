@@ -1,8 +1,8 @@
-import test from 'blue-tape'
+import test from 'ava'
 
 import {equal} from '../vector/component-arithmetic'
 
-test('equality: simple equality', t => {
+test('simple equality', t => {
   const testVectors = [
     [{x: 1}, {x: 1}],
     [{x: 2}, {x: 2}],
@@ -10,13 +10,13 @@ test('equality: simple equality', t => {
     [{x: 1, y: 2, z: 3}, {x: 1, y: 2, z: 3}]
   ]
   for (const [v1, v2] of testVectors) {
-    t.assert(equal(v1, v2))
+    t.true(equal(v1, v2))
   }
 
-  t.end()
+
 })
 
-test('equality: simple inequality', t => {
+test('simple inequality', t => {
   const testVectors = [
     [{x: 1}, {x: 2}],
     [{x: 2}, {y: 2}],
@@ -24,21 +24,17 @@ test('equality: simple inequality', t => {
     [{x: 1, y: 2, z: 3}, {x: 1, y: 2}]
   ]
   for (const [v1, v2] of testVectors) {
-    t.assert(!equal(v1, v2))
+    t.false(equal(v1, v2))
   }
-
-  t.end()
 })
 
-test('equality: differing component count', t => {
+test('differing component count', t => {
   const testVectors = [
     [{x: 1}, {y: 1}],
     [{x: 1, y: 1}, {x: 1}],
     [{x: 1, y: 2, z: 3}, {y: 2, z: 3}]
   ]
   for (const [v1, v2] of testVectors) {
-    t.assert(!equal(v1, v2))
+    t.false(equal(v1, v2))
   }
-
-  t.end()
 })
