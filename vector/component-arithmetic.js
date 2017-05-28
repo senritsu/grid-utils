@@ -16,6 +16,6 @@ export const equal = wrapBinaryOperator((v, operand) => {
     : v.x === operand.x && v.y === operand.y && v.z === operand.z
 })
 
-export const square = componentWise(a => Math.pow(a, 2))
-
 export const power = curriedComponentWise((a, b) => Math.pow(a, b))
+
+export const square = power(2)

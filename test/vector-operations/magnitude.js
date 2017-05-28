@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {magnitude, normalize} from '../../vector/vector-operations'
+import {magnitude} from '../../vector/vector-operations'
 
 test('magnitude', t => {
   let v = {x: 1, y: 1}

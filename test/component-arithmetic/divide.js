@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {divide} from '../vector/component-arithmetic'
+import {divide} from '../../vector/component-arithmetic'
 
 test('2d vectors', t => {
   let v1 = {x: 4, y: 2}
@@ -80,3 +80,5 @@ test('rounding', t => {
   expected = {x: 1, z: 2}
   t.deepEqual(divide(v1, v2), expected)
 })
+
+test.todo('float division')

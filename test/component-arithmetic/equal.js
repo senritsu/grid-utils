@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {equal} from '../vector/component-arithmetic'
+import {equal} from '../../vector/component-arithmetic'
 
 test('simple equality', t => {
   const testVectors = [
