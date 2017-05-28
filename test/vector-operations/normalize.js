@@ -1,5 +1,34 @@
 import test from 'ava'
 
 import {normalize} from '../../vector/operators/unary'
+import {equal} from '../../vector/operators/binary'
 
-test.todo('normalize')
+const cos45 = Math.cos(Math.PI / 4)
+
+test('2d vectors', t => {
+  let v = {x: 1, y: 0}
+  let expected = {x: 1, y: 0}
+  t.true(equal(normalize(v), expected))
+
+  v = {x: 0, y: -1}
+  expected = {x: 0, y: -1}
+  t.true(equal(normalize(v), expected))
+
+  v = {x: 0, y: 2}
+  expected = {x: 0, y: 1}
+  t.true(equal(normalize(v), expected))
+
+  v = {x: 3, z: 3}
+  expected = {x: cos45, z: cos45}
+  t.true(equal(normalize(v), expected))
+})
+
+test('3d vectors', t => {
+  let v = {x: 2, y: 0, z: 2}
+  let expected = {x: cos45, y: 0, z: cos45}
+  t.true(equal(normalize(v), expected))
+
+  v = {x: -3, y: -3, z: -6*cos45}
+  expected = {x: -0.5, y: -0.5, z: -cos45}
+  t.true(equal(normalize(v), expected))
+})
