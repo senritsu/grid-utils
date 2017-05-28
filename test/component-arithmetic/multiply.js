@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {multiply} from '../../vector/component-arithmetic'
+import {multiply} from '../../vector/operators/binary'
 
 test('2d vectors', t => {
   let v1 = {x: 2, y: 1}

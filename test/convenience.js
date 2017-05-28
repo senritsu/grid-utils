@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {set, normalize} from '../vector/convenience'
+import {set} from '../vector/operators/binary'
 
 test('set vector of deepEqual structure', t => {
   let v1 = {x: 0, y: 0}

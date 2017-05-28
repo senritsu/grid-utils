@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {square} from '../../vector/component-arithmetic'
+import {square} from '../../vector/operators/unary'
 
 test.todo('2d vectors')
 

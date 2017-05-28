@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {euclidean, manhattan} from '../vector/metrics'
+import {euclidean, manhattan} from '../vector/operators/metrics'
 
 test('euclidean', t => {
   let v1 = {x: 0, y: 0}

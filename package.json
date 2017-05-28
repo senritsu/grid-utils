@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc ava --verbose",
-    "test:watch": "nyc ava --watch",
+    "test:watch": "ava --watch --verbose",
 		"report": "nyc report --reporter=html",
     "testtermux": "node_modules/.bin/ava"
   },

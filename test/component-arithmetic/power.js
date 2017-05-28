@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {power} from '../../vector/component-arithmetic'
+import {power} from '../../vector/operators/binary'
 
 test.todo('2d vectors')
 

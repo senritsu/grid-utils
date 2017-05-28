@@ -1,5 +1,5 @@
 import test from 'ava'
 
-import {normalize} from '../../vector/vector-operations'
+import {normalize} from '../../vector/operators/unary'
 
 test.todo('normalize')

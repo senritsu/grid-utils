@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {add} from '../../vector/component-arithmetic'
+import {add} from '../../vector/operators/binary'
 
 test('2d vectors', t => {
   let v1 = {x: 0, y: 1}

@@ -48,3 +48,4 @@ jspm_packages
 
 coverage
 .nyc_output
+/scratch.js
