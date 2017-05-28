@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {equal} from '../../vector/operators/binary'
+import {equal} from '../../../vector/operators/binary'
 
 test('simple equality', t => {
   const testVectors = [
@@ -12,8 +12,6 @@ test('simple equality', t => {
   for (const [v1, v2] of testVectors) {
     t.true(equal(v1, v2))
   }
-
-
 })
 
 test('simple inequality', t => {

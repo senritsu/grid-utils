@@ -15,7 +15,7 @@ export const divideFloat = zip((a, b) => a / b)
 
 export const equal = zipPipeline([
   zipJagged((a, b) => typeof a === 'number' && typeof b === 'number'
-    ? Math.abs(a - b) < Number.EPSILON
+    ? Math.abs(a - b) <= Number.EPSILON
     : a === b
   ),
   reduce((totalEquality, componentEquality) => totalEquality && componentEquality, true)

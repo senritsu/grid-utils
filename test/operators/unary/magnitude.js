@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {magnitude} from '../../vector/operators/unary'
+import {magnitude} from '../../../vector/operators/unary'
 
 test('magnitude', t => {
   let v = {x: 1, y: 1}

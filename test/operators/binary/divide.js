@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {divide} from '../../vector/operators/binary'
+import {divide} from '../../../vector/operators/binary'
 
 test('2d vectors', t => {
   let v1 = {x: 4, y: 2}

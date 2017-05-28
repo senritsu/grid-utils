@@ -1,6 +1,8 @@
 import test from 'ava'
 
-import {square} from '../../vector/operators/unary'
+import {dot} from '../../../vector/operators/binary'
+
+test.todo('self')
 
 test.todo('2d vectors')
 

@@ -1,15 +1,15 @@
 import test from 'ava'
 
-import {set} from '../vector/operators/binary'
+import {set} from '../../../vector/operators/binary'
 
-test('set vector of deepEqual structure', t => {
+test('vector of same structure', t => {
   let v1 = {x: 0, y: 0}
   let v2 = {x: 1, y: 2}
   let expected = {x: 1, y: 2}
   t.deepEqual(set(v1, v2), expected)
 })
 
-test('set sparse vector', t => {
+test('sparse vector', t => {
   let v1 = {x: 0, y: 0}
   let v2 = {x: 1}
   let expected = {x: 1, y: 0}
@@ -21,7 +21,7 @@ test('set sparse vector', t => {
   t.deepEqual(set(v1, v2), expected)
 })
 
-test('set scalar', t => {
+test('scalar', t => {
   let v1 = {x: 0, y: 0}
   let s = 2
   let expected = {x: 2, y: 2}
