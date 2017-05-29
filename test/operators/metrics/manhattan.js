@@ -3,10 +3,12 @@ import test from 'ava'
 import {equal} from '../../../vector/operators/binary'
 import {euclidean, manhattan} from '../../../vector/operators/metrics'
 
+let v1, v2, expected
+
 test('2d vectors', t => {
-  let v1 = {x: 0, y: -1}
-  let v2 = {x: 1, y: 1}
-  let expected = 3
+  v1 = {x: 0, y: -1}
+  v2 = {x: 1, y: 1}
+  expected = 3
   t.is(manhattan(v1, v2), expected)
 
   v1 = {x: -2, y: 2}
@@ -21,15 +23,15 @@ test('2d vectors', t => {
 })
 
 test('3d vectors', t => {
-  let v1 = {x: 0, y: -1, z: 0}
-  let v2 = {x: 1, y: 1, z: 1}
-  let expected = 4
+  v1 = {x: 0, y: -1, z: 0}
+  v2 = {x: 1, y: 1, z: 1}
+  expected = 4
   t.is(manhattan(v1, v2), expected)
 })
 
 test('jagged vectors', t => {
-  let v1 = {x: 3, z: -1}
-  let v2 = {y: 1, z: 2}
-  let expected = 3
+  v1 = {x: 3, z: -1}
+  v2 = {y: 1, z: 2}
+  expected = 3
   t.is(manhattan(v1, v2), expected)
 })

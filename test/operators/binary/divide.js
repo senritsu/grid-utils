@@ -2,10 +2,12 @@ import test from 'ava'
 
 import {divide} from '../../../vector/operators/binary'
 
+let v1, v2, v, s, expected
+
 test('2d vectors', t => {
-  let v1 = {x: 4, y: 2}
-  let v2 = {x: 2, y: 1}
-  let expected = {x: 2, y: 2}
+  v1 = {x: 4, y: 2}
+  v2 = {x: 2, y: 1}
+  expected = {x: 2, y: 2}
   t.deepEqual(divide(v1, v2), expected)
 
   v1 = {x: 2, z: 2}
@@ -15,16 +17,28 @@ test('2d vectors', t => {
 })
 
 test('3d vectors', t => {
-  let v1 = {x: 0, y: 1, z: 4}
-  let v2 = {x: 2, y: 1, z: 2}
-  let expected = {x: 0, y: 1, z: 2}
+  v1 = {x: 0, y: 1, z: 4}
+  v2 = {x: 2, y: 1, z: 2}
+  expected = {x: 0, y: 1, z: 2}
   t.deepEqual(divide(v1, v2), expected)
 })
 
+test('scalars', t => {
+  v = {x: 2, y: 5}
+  s = 2
+  expected = {x: 1, y: 3}
+  t.deepEqual(divide(v, s), expected)
+
+  v = {x: -1, z: 1}
+  s = -2
+  expected = {x: 1, z: 0}
+  t.deepEqual(divide(v, s), expected)
+})
+
 test('strips out unmatched components', t => {
-  let v1 = {x: 2, y: 2, z: 2}
-  let v2 = {x: 2, z: 2}
-  let expected = {x: 1, z: 1}
+  v1 = {x: 2, y: 2, z: 2}
+  v2 = {x: 2, z: 2}
+  expected = {x: 1, z: 1}
   t.deepEqual(divide(v1, v2), expected)
 
   v1 = {x: 1, y: 1, z: 1}
@@ -41,8 +55,8 @@ test('strips out unmatched components', t => {
 test('partial application', t => {
   const divideByDouble2DUnitVector = divide({x: 2, y: 2})
 
-  let v = {x: 2, y: 4}
-  let expected = {x: 1, y: 2}
+  v = {x: 2, y: 4}
+  expected = {x: 1, y: 2}
 
   t.deepEqual(divideByDouble2DUnitVector(v), expected)
 
@@ -58,16 +72,16 @@ test('partial application', t => {
 })
 
 test('division by zero', t => {
-  let v1 = {x: 1, y: 2}
-  let v2 = {x: 0, y: 0}
-  let expected = {x: Infinity, y: Infinity}
+  v1 = {x: 1, y: 2}
+  v2 = {x: 0, y: 0}
+  expected = {x: Infinity, y: Infinity}
   t.deepEqual(divide(v1, v2), expected)
 })
 
 test('rounding', t => {
-  let v1 = {x: 1, y: 2}
-  let v2 = {x: 3, y: 3}
-  let expected = {x: 0, y: 1}
+  v1 = {x: 1, y: 2}
+  v2 = {x: 3, y: 3}
+  expected = {x: 0, y: 1}
   t.deepEqual(divide(v1, v2), expected)
 
   v1 = {x: -5, z: 7}

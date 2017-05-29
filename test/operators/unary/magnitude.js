@@ -2,6 +2,8 @@ import test from 'ava'
 
 import {magnitude} from '../../../vector/operators/unary'
 
+let v, expected
+
 test('magnitude', t => {
   let v = {x: 1, y: 1}
   let expected = Math.sqrt(2)

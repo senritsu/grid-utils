@@ -5,9 +5,11 @@ import {equal} from '../../../vector/operators/binary'
 
 const cos45 = Math.cos(Math.PI / 4)
 
+let v, expected
+
 test('2d vectors', t => {
-  let v = {x: 1, y: 0}
-  let expected = {x: 1, y: 0}
+  v = {x: 1, y: 0}
+  expected = {x: 1, y: 0}
   t.true(equal(normalize(v), expected))
 
   v = {x: 0, y: -1}
@@ -24,8 +26,8 @@ test('2d vectors', t => {
 })
 
 test('3d vectors', t => {
-  let v = {x: 2, y: 0, z: 2}
-  let expected = {x: cos45, y: 0, z: cos45}
+  v = {x: 2, y: 0, z: 2}
+  expected = {x: cos45, y: 0, z: cos45}
   t.true(equal(normalize(v), expected))
 
   v = {x: -3, y: -3, z: -6*cos45}
