@@ -11,3 +11,9 @@ export const sum = reduce((sum, a) => sum + a)
 export const magnitude = mapPipeline([square, sum, Math.sqrt])
 
 export const normalize = v => divideFloat(v, magnitude(v))
+
+// boolean operators
+
+export const every = reduce((combined, value) => Boolean(combined && value), true)
+
+export const some = reduce((combined, value) => Boolean(combined || value), false)
