@@ -1,7 +1,7 @@
 import {definedComponents} from './components'
 import {
   clone,
-  assignOrDelete,
+  assignComponentValue,
   getScalarValue,
   withFlexibleSignature,
   skipUndefinedArguments
@@ -19,7 +19,7 @@ const mapComponents = (v, f) => {
   const result = clone(v)
 
   definedComponents(v).forEach(component => {
-    assignOrDelete(result, component, f(component))
+    assignComponentValue(result, component, f(component))
   })
 
   return result

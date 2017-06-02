@@ -23,6 +23,23 @@ test('3d vectors', t => {
   t.deepEqual(add(v1, v2), expected)
 })
 
+test('array vectors', t => {
+  v1 = [1, 1]
+  v2 = {x: 0, y: 0}
+  expected = [1, 1]
+  t.deepEqual(add(v1, v2), expected)
+
+  v1 = {x: 1, z: 1}
+  v2 = [0, 0]
+  expected = {x: 1}
+  t.deepEqual(add(v1, v2), expected)
+
+  v1 = [1, 1]
+  v2 = [0, 0, 1]
+  expected = [1, 1]
+  t.deepEqual(add(v1, v2), expected)
+})
+
 test('scalars', t => {
   v = {x: 0, y: 1}
   s = 2

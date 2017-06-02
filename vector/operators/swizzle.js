@@ -1,5 +1,5 @@
 import {allComponents} from '../helpers/components'
-import {clone, withFlexibleSignature, assignOrDelete} from '../helpers/misc'
+import {clone, withFlexibleSignature, assignComponentValue} from '../helpers/misc'
 
 const extractValue = (v, character) => {
   switch (character) {
@@ -11,7 +11,7 @@ const extractValue = (v, character) => {
   case 'y':
   case 'z':
   case 'w':
-    return v[character]
+    return Array.isArray(v) ? v[allComponents.indexOf(character)] : v[character]
   default:
     throw new Error('invalid swizzling character')
   }
@@ -25,22 +25,26 @@ export const swizzle = withFlexibleSignature((v, description) => {
     return extractValue(v, characters[0])
   }
 
-  if (characters.length > 4) {
-    throw new Error('swizzle expression out of bounds (max length 4)')
+  if (!Array.isArray(v) && characters.length > 4) {
+    throw new Error('swizzle expression out of bounds (max length 4) for object vector')
   }
 
-  const result = clone(v)
+  const result = Array.isArray(v)
+    ? new Array(characters.length)
+    : clone(v)
 
   allComponents.forEach(component => {
-    delete result[component]
+    assignComponentValue(result, component, undefined)
   })
 
   characters.forEach((character, i) => {
     const component = allComponents[i]
     const value = extractValue(v, character)
 
-    if (value !== undefined) {
-      result[component] = value
+    if (Array.isArray(v)) {
+      result[i] = value
+    } else {
+      assignComponentValue(result, component, value)
     }
   })
 

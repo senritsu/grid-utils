@@ -3,6 +3,8 @@ import test from 'ava'
 import {swizzle} from '../../vector/operators/swizzle'
 
 const vector4 = {x: 1, y: 2, z: 3, w: 4}
+const array2 = [1, 2]
+const array4 = [1, 2, 3, 4]
 
 const checkSwizzledVector = (t, expression, expected) => {
   t.deepEqual(swizzle(vector4, expression), expected)
@@ -61,12 +63,27 @@ test('partial application', t => {
   t.deepEqual(make2d({x: -2, y: 5, z: 9}), {x: -2, y: 5})
 })
 
-test('too many chars', t => {
+test('more than 4 characters', t => {
   t.throws(() => swizzle(vector4, 'xxyyzz'))
   t.throws(() => swizzle(vector4, '11000'))
+
+  t.deepEqual(swizzle(array4, 'xxyyzz'), [1, 1, 2, 2, 3, 3])
+  t.deepEqual(swizzle(array4, '11000'), [1, 1, 0, 0, 0])
 })
 
 test('invalid chars', t => {
   t.throws(() => swizzle(vector4, 'asdf'))
   t.throws(() => swizzle(vector4, '234'))
+})
+
+test('array input (2d)', t => {
+  t.deepEqual(swizzle(array2, 'yx'), [2, 1])
+  t.deepEqual(swizzle(array2, 'xz'), [1, undefined])
+  t.deepEqual(swizzle(array2, 'x'), 1)
+})
+
+test('array input (4d)', t => {
+  t.deepEqual(swizzle(array4, 'yx'), [2, 1])
+  t.deepEqual(swizzle(array4, 'xz'), [1, 3])
+  t.deepEqual(swizzle(array4, 'x'), 1)
 })

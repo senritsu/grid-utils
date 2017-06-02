@@ -16,23 +16,36 @@ export const withFlexibleSignature = f => {
   }
 }
 
-export const assignOrDelete = (v, key, value) => {
-  if (value === undefined) {
-    delete v[key]
+export const assignComponentValue = (v, component, value) => {
+  if (Array.isArray(v)) {
+    if (componentOrder[component] < v.length) {
+      v[componentOrder[component]] = value
+    }
   } else {
-    v[key] = value
+    if (value === undefined) {
+      delete v[component]
+    } else {
+      v[component] = value
+    }
   }
 }
 
 export const getScalarValue = (operand, component) => typeof operand === 'number'
   ? operand
-  : Array.isArray(operand) && typeof Array[componentOrder[component]] === 'number'
+  : Array.isArray(operand)
     ? operand[componentOrder[component]]
     : operand[component]
 
-export const getArrayValue = (operand, component) => Array.isArray(operand)
-  ? operand
-  : operand[component]
+export const getArrayValue = (operand, component) => {
+  if (Array.isArray(operand)) {
+    if (Array.isArray(operand[componentOrder[component]])) {
+      return operand[componentOrder[component]]
+    } else if (!Array.isArray(operand[0])) {
+      return operand
+    }
+  }
+  return operand[component]
+}
 
 export const skipUndefinedArguments = (f, defaultValue) => (a, b) => a !== undefined && b !== undefined
   ? f(a, b)
@@ -44,7 +57,7 @@ export const clone = v => {
     v.forEach((value, i) => {
       obj[allComponents[i]] = value
     })
-    return obj
+    return [...v]
   }
   const prototype = Object.getPrototypeOf(v)
   return Object.assign(Object.create(prototype === Object.prototype ? Vector.prototype : prototype), v)
