@@ -1,4 +1,4 @@
-import {withFlexibleSignature} from '../helpers/misc'
+import {withInvertedCurryingSupport} from '../helpers/misc'
 import {definedComponents} from '../helpers/components'
 import {zip, zipJagged, zipPipeline, reduce} from '../helpers/operators'
 
@@ -22,9 +22,9 @@ export const power = zip((a, b) => Math.pow(a, b))
 
 export const set = zipJagged((a, b) => b === undefined ? a : b)
 
-export const dot = withFlexibleSignature((v1, v2) => { throw new Error('not implemented') })
+export const dot = withInvertedCurryingSupport((v1, v2) => { throw new Error('not implemented') })
 
-export const cross = withFlexibleSignature((v1, v2) => { throw new Error('not implemented') })
+export const cross = withInvertedCurryingSupport((v1, v2) => { throw new Error('not implemented') })
 
 // boolean operators
 

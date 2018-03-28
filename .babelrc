@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015"],
-  "ignore": "tests/**/*.js"
+  "presets": ["@babel/preset-env"],
+  "ignore": ["tests/**/*.js"]
 }

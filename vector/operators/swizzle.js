@@ -1,5 +1,5 @@
-import {allComponents} from '../helpers/components'
-import {clone, withFlexibleSignature, assignComponentValue} from '../helpers/misc'
+import {allComponents, assignComponentValue} from '../helpers/components'
+import {clone, withInvertedCurryingSupport} from '../helpers/misc'
 
 const extractValue = (v, character) => {
   switch (character) {
@@ -17,7 +17,7 @@ const extractValue = (v, character) => {
   }
 }
 
-export const swizzle = withFlexibleSignature((v, description) => {
+export const swizzle = withInvertedCurryingSupport((v, description) => {
   const characters = description.replace('_', '').split('')
 
   // short-circuit for scalar value

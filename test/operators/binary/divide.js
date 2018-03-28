@@ -31,7 +31,7 @@ test('scalars', t => {
 
   v = {x: -1, z: 1}
   s = -2
-  expected = {x: 1, z: 0}
+  expected = {x: 1, z: -0}
   t.deepEqual(divide(v, s), expected)
 })
 

@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {getScalarValue, getArrayValue} from '../vector/helpers/misc'
+import {getScalarValue, getArrayValue} from '../vector/helpers/components'
 
 let v, s
 

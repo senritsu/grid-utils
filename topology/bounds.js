@@ -1,4 +1,4 @@
-import {getArrayValue} from '../vector/helpers/misc'
+import {getArrayValue} from '../vector/helpers/components'
 import {zip, zipPipeline} from '../vector/helpers/operators'
 import {every} from '../vector/operators/unary'
 
