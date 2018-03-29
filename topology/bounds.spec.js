@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {within} from '../../topology/bounds'
+import {within} from './bounds'
 
 let v, bounds, expected
 

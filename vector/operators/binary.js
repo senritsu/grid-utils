@@ -1,6 +1,6 @@
-import {withInvertedCurryingSupport} from '../helpers/misc'
-import {definedComponents} from '../helpers/components'
-import {zip, zipJagged, zipPipeline, reduce} from '../helpers/operators'
+import {withInvertedCurryingSupport} from '../util/misc'
+import {definedComponents} from '../util/components'
+import {zip, zipJagged, zipPipeline, reduce} from '../util/operators'
 
 export const add = zip((a, b) => a + b)
 

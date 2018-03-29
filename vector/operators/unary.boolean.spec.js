@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {every, some} from '../../../vector/operators/unary'
+import {every, some} from './unary'
 
 let v
 

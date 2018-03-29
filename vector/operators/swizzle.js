@@ -1,5 +1,5 @@
-import {allComponents, assignComponentValue} from '../helpers/components'
-import {clone, withInvertedCurryingSupport} from '../helpers/misc'
+import {allComponents, assignComponentValue} from '../util/components'
+import {clone, withInvertedCurryingSupport} from '../util/misc'
 
 const extractValue = (v, character) => {
   switch (character) {

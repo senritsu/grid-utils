@@ -1,6 +1,6 @@
 import {power, divideFloat} from './binary'
-import {definedComponents} from '../helpers/components'
-import {map, reduce, pipeline} from '../helpers/operators'
+import {definedComponents} from '../util/components'
+import {map, reduce, pipeline} from '../util/operators'
 
 export const absolute = map(a => Math.abs(a))
 

@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {subtract} from '../../../vector/operators/binary'
+import {subtract} from './binary'
 
 let v1, v2, v, s, expected
 

@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {moore, neumann} from '../../topology/neighbors'
+import {moore, neumann} from './neighbors'
 
 test.todo('moore')
 

@@ -22,10 +22,15 @@
   },
   "ava": {
     "files": [
-      "test/**/*.js"
+      "**/*.spec.js"
     ],
     "require": [
       "@babel/register"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js"
     ]
   }
 }

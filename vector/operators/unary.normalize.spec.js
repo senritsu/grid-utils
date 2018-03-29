@@ -1,7 +1,7 @@
 import test from 'ava'
 
-import {normalize} from '../../../vector/operators/unary'
-import {equal} from '../../../vector/operators/binary'
+import {normalize} from './unary'
+import {equal} from './binary'
 
 const cos45 = Math.cos(Math.PI / 4)
 

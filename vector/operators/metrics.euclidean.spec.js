@@ -1,7 +1,7 @@
 import test from 'ava'
 
-import {equal} from '../../../vector/operators/binary'
-import {euclidean} from '../../../vector/operators/metrics'
+import {equal} from './binary'
+import {euclidean} from './metrics'
 
 const almostEqual = (a, b) => Math.abs(a - b) <= Number.EPSILON
 const cos45 = Math.cos(Math.PI/4)

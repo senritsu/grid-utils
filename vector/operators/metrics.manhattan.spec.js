@@ -1,7 +1,7 @@
 import test from 'ava'
 
-import {equal} from '../../../vector/operators/binary'
-import {euclidean, manhattan} from '../../../vector/operators/metrics'
+import {equal} from './binary'
+import {euclidean, manhattan} from './metrics'
 
 let v1, v2, expected
 

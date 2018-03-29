@@ -1,4 +1,4 @@
-import {allComponents, definedComponents} from './helpers/components'
+import {allComponents, definedComponents} from './util/components'
 
 export default function Vector () {
   if (typeof arguments[0] === 'number') {

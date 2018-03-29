@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {dot} from '../../../vector/operators/binary'
+import {dot} from './binary'
 
 test.todo('self')
 

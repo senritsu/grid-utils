@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {equal} from '../../../vector/operators/binary'
+import {equal} from './binary'
 
 test('simple equality', t => {
   const testVectors = [

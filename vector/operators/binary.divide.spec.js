@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {divide} from '../../../vector/operators/binary'
+import {divide} from './binary'
 
 let v1, v2, v, s, expected
 

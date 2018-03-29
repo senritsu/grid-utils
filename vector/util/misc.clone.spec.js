@@ -1,7 +1,7 @@
 import test from 'ava'
 
-import Vector from '../vector/prototype'
-import {clone} from '../vector/helpers/misc'
+import Vector from '../prototype'
+import {clone} from './misc'
 
 let v
 

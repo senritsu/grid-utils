@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {magnitude} from '../../../vector/operators/unary'
+import {magnitude} from './unary'
 
 let v, expected
 

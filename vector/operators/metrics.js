@@ -1,4 +1,4 @@
-import {zipPipeline} from '../helpers/operators'
+import {zipPipeline} from '../util/operators'
 import {sum, absolute, square} from './unary'
 import {subtract} from './binary'
 

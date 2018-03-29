@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {set} from '../../../vector/operators/binary'
+import {set} from './binary'
 
 let v1, v2, v, s, expected
 
